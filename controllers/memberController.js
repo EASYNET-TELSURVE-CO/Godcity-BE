@@ -1,15 +1,24 @@
 // controllers/memberController.js
 const Member = require('../models/Member');
 
+const Members = require('../models/User');
+
 // Get all members
 exports.getAllMembers = async (req, res) => {
   try {
-    const members = await Member.find();
-    res.json(members);
+    // Select all fields except 'password'
+    const members = await Members.find({}, { password: 0 });
+
+    res.json({
+      responseCode: 200,
+      count: members.length,
+      data: members
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
+
 
 // Create a new member
 exports.createMember = async (req, res) => {

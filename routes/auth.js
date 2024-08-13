@@ -8,6 +8,7 @@ const role = require('../middleware/roleMiddleware');
 // @desc     Register user
 // @access   Public
 router.post('/register', authController.registerUser);
+router.post('/invite', authController.inviteUser);
 
 // @route    POST api/auth/login
 // @desc     Authenticate user & get token

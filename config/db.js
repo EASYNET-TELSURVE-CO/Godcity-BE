@@ -5,7 +5,8 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect("mongodb+srv://qosbot:qosbot@microsrv.j8ond.mongodb.net/Godcity?retryWrites=true&w=majority", {
+      // await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // keepAlive: true, 
