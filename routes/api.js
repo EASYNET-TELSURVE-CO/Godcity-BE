@@ -7,6 +7,8 @@ const memberController = require('../controllers/memberController');
 const eventController = require('../controllers/eventController');
 const forumController = require('../controllers/forumController');
 const resourceController = require('../controllers/resourceController');
+const requestController = require('../controllers/requestController'); // Import the controller
+
 
 
 // Set up multer for file uploads
@@ -53,5 +55,23 @@ router.get('/resources/all', resourceController.getAllSermons);
 router.get('/resources/details/:id', resourceController.getSermonDetails);
 router.delete('/resources/delete/:id', resourceController.deleteSermon);
 router.put('/resources/update/:id', resourceController.updateSermon);
+
+
+
+
+// Route to create a new request
+router.post('/requests', requestController.createRequest);
+
+// Route to get all requests
+router.get('/requests', requestController.getAllRequests);
+
+// Route to get a single request by ID
+router.get('/requests/:id', requestController.getRequestById);
+
+// Route to update a request by ID
+router.put('/requests/:id', requestController.updateRequest);
+
+// Route to delete a request by ID
+router.delete('/requests/:id', requestController.deleteRequest);
 
 module.exports = router;
